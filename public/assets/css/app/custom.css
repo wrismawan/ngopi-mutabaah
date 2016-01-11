@@ -1,0 +1,15 @@
+.score-container {
+    width: 100%;
+    text-align: center;
+}
+
+.score-container .score {
+    font-size: 5em;
+}
+
+.full-width {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    font-size: 1.5em;
+}
