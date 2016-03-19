@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\IbadahItem;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -9,8 +10,14 @@ use App\Http\Controllers\Controller;
 
 class MutabaahController extends Controller
 {
+    public function __construct(IbadahItem $ibadahItem)
+    {
+        $this->ibadahItem = $ibadahItem;
+    }
+
     public function index()
     {
-        return view('layouts.mutabaah');
+        $items = $this->ibadahItem->all();
+        return view('layouts.mutabaah', ["items" => $items]);
     }
 }
