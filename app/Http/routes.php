@@ -29,4 +29,20 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'mutabaah.home',
         'uses' => 'MutabaahController@index'
     ]);
+
+    Route::get('/generate/today', [
+        'as' => 'mutabaah.generate.today',
+        'uses' => 'ReportController@generateDaily'
+    ]);
+
+    Route::post('/report/update', [
+        'as' => 'report.update',
+        'uses' => 'ReportController@update'
+    ]);
+});
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
 });
